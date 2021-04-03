@@ -16,14 +16,14 @@
     </button>
 
     {# Nav Links  #}
-    <ul class="nav__menu js-nav-menu" id="nav-menu">
+    <ul class="flex static background-transparent js-nav-menu" id="nav-menu">
     {%- for item in collections.all | eleventyNavigation -%}
         {%- if item.url -%}
             {%- set isCurrent = (item.url == page.url) -%}
             {%- set isParent = item.url != '/' and item.url in page.url -%}
-            <li class="nav__item{% if isCurrent or isParent %} nav__item--active{% endif %}">
+            <li>
                 <a
-                    class="nav__link"
+                    class="block px-2 py-4"
                     href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}"
                     {% if isCurrent %}aria-current="page"{% endif %}
                 >
