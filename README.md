@@ -1,8 +1,10 @@
-# Eleventastic
+> **WIP:** This is not ready for use yet!
 
-A simple Eleventy Starter Kit, my base for all new 11ty projects. ([Demo Site](https://eleventastic.netlify.com))
+# Eleventastic Tailwind
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f78ec52d-8328-4e40-b6da-a0f9164e80d1/deploy-status)](https://app.netlify.com/sites/eleventastic/deploys)
+A fork of the [Eleventastic template](https://github.com/maxboeck/eleventastic) using TailwindCSS. ([Demo Site](https://eleventastic-tailwind.netlify.com))
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f26c8c2f-6449-48e7-8059-46632f305313/deploy-status)](https://app.netlify.com/sites/eleventastic-tailwind/deploys)
 
 ## Features
 
