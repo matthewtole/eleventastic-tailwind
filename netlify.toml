@@ -14,8 +14,8 @@
         Referrer-Policy= "no-referrer-when-downgrade"
 
 # [[redirects]]
-#     from = "https://eleventastic.netlify.com/*"
-#     to = "https://eleventastic.dev/:splat"
+#     from = "https://eleventastic-tailwind.netlify.com/*"
+#     to = "https://eleventastic-tailwind.dev/:splat"
 #     status = 301
 #     force = true
 
