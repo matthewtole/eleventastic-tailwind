@@ -1,14 +1,11 @@
-// This file handles the CSS build.
-// It will run Sass and compile all styles defined in the main entry file.
-
-// main entry point name
-const ENTRY_FILE_NAME = 'main.scss'
+const ENTRY_FILE_NAME = 'main.css'
 
 const path = require('path')
-const sass = require('node-sass')
 const CleanCSS = require('clean-css')
 const cssesc = require('cssesc')
 const isProd = process.env.ELEVENTY_ENV === 'production'
+const postcss = require('postcss')
+const { readFile } = require('fs/promises')
 
 module.exports = class {
     async data() {
@@ -23,19 +20,13 @@ module.exports = class {
     // Compile Sass to CSS,
     // Embed Source Map in Development
     async compile(config) {
-        return new Promise((resolve, reject) => {
-            if (!isProd) {
-                config.sourceMap = true
-                config.sourceMapEmbed = true
-                config.outputStyle = 'expanded'
-            }
-            return sass.render(config, (err, result) => {
-                if (err) {
-                    return reject(err)
-                }
-                resolve(result.css.toString())
-            })
-        })
+        const source = (await readFile(config.file)).toString()
+        const result = await postcss([
+            require('postcss-import'),
+            require('tailwindcss'),
+            require('autoprefixer')
+        ]).process(source, { from: ENTRY_FILE_NAME })
+        return result.css
     }
 
     // Minify & Optimize with CleanCSS in Production
